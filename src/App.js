@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React, { useEffect } from 'react';
+import $ from 'jquery';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import './styles.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    useEffect(() => {
+        // Sử dụng jQuery để thay đổi nội dung
+        $('#welcome-message').text('This is a simple React app with jQuery!');
+    }, []);
+
+    return (
+        <div className="App">
+            <Header />
+            <div className="container mt-4">
+                <h2 id="welcome-message">Welcome to My App!</h2>
+                <p>This app demonstrates the integration of React, CSS, and jQuery.</p>
+            </div>
+            <Footer />
+        </div>
+    );
+};
 
 export default App;
